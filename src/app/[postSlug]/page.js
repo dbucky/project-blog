@@ -9,11 +9,9 @@ import BlogHero from '@/components/BlogHero';
 
 import styles from './postSlug.module.css';
 
-const getBlogPost = React.cache(loadBlogPost);
-
 export async function generateMetadata({ params }) {
   const { postSlug } = await params;
-  const blogPost = await getBlogPost(postSlug);
+  const blogPost = await loadBlogPost(postSlug);
 
   return {
     title: `${blogPost.frontmatter.title} • ${BLOG_TITLE}`,
@@ -24,7 +22,7 @@ export async function generateMetadata({ params }) {
 async function BlogPost({ params }) {
   const { postSlug } = await params;
 
-  const blogPost = await getBlogPost(postSlug);
+  const blogPost = await loadBlogPost(postSlug);
 
   return (
     <article className={styles.wrapper}>
