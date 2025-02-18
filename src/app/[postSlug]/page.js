@@ -8,6 +8,7 @@ import { loadBlogPost } from '@/helpers/file-helpers';
 import BlogHero from '@/components/BlogHero';
 import CodeSnippet from '@/components/CodeSnippet';
 import DivisionGroupsDemo from '@/components/DivisionGroupsDemo';
+import CircularColorsDemo from '@/components/CircularColorsDemo';
 
 import styles from './postSlug.module.css';
 
@@ -40,6 +41,7 @@ async function BlogPost({ params }) {
               BlogHero,
               pre: CodeSnippet,
               DivisionGroupsDemo,
+              CircularColorsDemo,
             }}
           />
         }
