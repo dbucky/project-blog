@@ -6,6 +6,7 @@ import { BLOG_TITLE } from '@/constants';
 import { loadBlogPost } from '@/helpers/file-helpers';
 
 import BlogHero from '@/components/BlogHero';
+import CodeSnippet from '@/components/CodeSnippet';
 
 import styles from './postSlug.module.css';
 
@@ -36,6 +37,7 @@ async function BlogPost({ params }) {
             source={blogPost.content}
             components={{
               BlogHero,
+              pre: CodeSnippet,
             }}
           />
         }
