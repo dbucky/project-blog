@@ -3,6 +3,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { Rss, Sun, Moon } from 'react-feather';
 import Cookies from 'js-cookie';
+import Link from 'next/link';
 
 import { LIGHT_TOKENS, DARK_TOKENS } from '@/constants';
 
@@ -30,7 +31,7 @@ async function Header({ theme, className, ...delegated }) {
       <Logo />
 
       <div className={styles.actions}>
-        <button className={styles.action}>
+        <Link className={styles.action} href="/rss.xml">
           <Rss
             size="1.5rem"
             style={{
@@ -39,7 +40,7 @@ async function Header({ theme, className, ...delegated }) {
             }}
           />
           <VisuallyHidden>View RSS feed</VisuallyHidden>
-        </button>
+        </Link>
         <button className={styles.action} onClick={toggleTheme}>
           {dynamicTheme === 'light' ? (
             <Sun size="1.5rem" />

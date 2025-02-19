@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getBlogPostList } from '@/helpers/file-helpers';
-import { BLOG_TITLE } from '@/constants';
+import { BLOG_TITLE, BLOG_DESCRIPTION } from '@/constants';
 
 import BlogSummaryCard from '@/components/BlogSummaryCard';
 
@@ -9,7 +9,7 @@ import styles from './homepage.module.css';
 
 export const metadata = {
   title: BLOG_TITLE,
-  description: 'A wonderful blog about JavaScript',
+  description: BLOG_DESCRIPTION,
 };
 
 async function Home() {
