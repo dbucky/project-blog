@@ -19,9 +19,11 @@ function CircularColorsDemo() {
   const id = React.useId();
 
   const [timeElapsed, setTimeElapsed] = React.useState(0);
-  const [selectedColor, setSelectedColor] = React.useState(COLORS[0]);
+
   // reset | running | paused
   const [status, setStatus] = React.useState('reset');
+
+  const selectedColor = COLORS[timeElapsed % COLORS.length];
 
   React.useEffect(() => {
     if (status != 'running') {
@@ -30,9 +32,7 @@ function CircularColorsDemo() {
 
     const intervalId = setInterval(() => {
       setTimeElapsed((currentTimeElapsed) => {
-        const nextTimeElapsed = currentTimeElapsed + 1;
-        setSelectedColor(COLORS[nextTimeElapsed % COLORS.length]);
-        return nextTimeElapsed;
+        return currentTimeElapsed + 1;
       });
     }, 1000);
 
@@ -52,7 +52,6 @@ function CircularColorsDemo() {
   function handleReset() {
     setStatus('reset');
     setTimeElapsed(0);
-    setSelectedColor(COLORS[0]);
   }
 
   return (
