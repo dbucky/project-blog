@@ -12,7 +12,7 @@ import VisuallyHidden from '@/components/VisuallyHidden';
 
 import styles from './Header.module.css';
 
-async function Header({ theme, className, ...delegated }) {
+function Header({ theme, className, ...delegated }) {
   let dynamicTheme = theme;
 
   function toggleTheme() {

@@ -1,16 +1,10 @@
 import React from 'react';
 
 import { getBlogPostList } from '@/helpers/file-helpers';
-import { BLOG_TITLE, BLOG_DESCRIPTION } from '@/constants';
 
 import BlogSummaryCard from '@/components/BlogSummaryCard';
 
 import styles from './homepage.module.css';
-
-export const metadata = {
-  title: BLOG_TITLE,
-  description: BLOG_DESCRIPTION,
-};
 
 async function Home() {
   const blogPosts = await getBlogPostList();

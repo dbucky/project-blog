@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { BLOG_TITLE } from '@/constants';
@@ -16,6 +17,10 @@ export async function generateMetadata({ params }) {
   const { postSlug } = await params;
   const blogPost = await loadBlogPost(postSlug);
 
+  if (!blogPost) {
+    return;
+  }
+
   return {
     title: `${blogPost.frontmatter.title} • ${BLOG_TITLE}`,
     description: blogPost.frontmatter.abstract,
@@ -24,8 +29,12 @@ export async function generateMetadata({ params }) {
 
 async function BlogPost({ params }) {
   const { postSlug } = await params;
-
   const blogPost = await loadBlogPost(postSlug);
+
+  if (!blogPost) {
+    notFound();
+    return;
+  }
 
   return (
     <article className={styles.wrapper}>
